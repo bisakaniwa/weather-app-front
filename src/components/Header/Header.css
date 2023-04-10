@@ -1,0 +1,18 @@
+.background {
+    background-color: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+    opacity: 0.5;
+    border-radius: 15px;
+}
+
+.font-properties {
+    font-family: Poppins;
+    font-size: 4vh;
+    font-weight: 600;
+    line-height: 12px;
+    text-align: left;
+}
+
+.navBar:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
