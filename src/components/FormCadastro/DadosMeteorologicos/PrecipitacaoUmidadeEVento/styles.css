@@ -1,0 +1,50 @@
+.titulo-precipitacao,
+.titulo-umidade,
+.titulo-vento {
+    font-family: 'Poppins';
+    font-size: 2.6vh !important;
+    color: white;
+    margin-top: 5%;
+}
+
+.input-vento {
+    font-family: 'Poppins';
+    font-size: 2vh;
+    color: white;
+    width: 20%;
+    padding: 3%;
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+    border-radius: 10px;
+    border: none;
+    margin-top: 5%;
+}
+
+.input-precipitacao {
+    font-family: 'Poppins';
+    font-size: 2vh;
+    color: white;
+    width: 26%;
+    padding: 3%;
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+    border-radius: 10px;
+    border: none;
+    margin-top: 5%;
+}
+
+.input-umidade {
+    font-family: 'Poppins';
+    font-size: 2vh;
+    color: white;
+    width: 35%;
+    padding: 4%;
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+    border-radius: 10px;
+    border: none;
+    margin-top: 8%;
+}
+
+.input-precipitacao::-webkit-inner-spin-button,
+.input-umidade::-webkit-inner-spin-button,
+.input-vento::-webkit-inner-spin-button {
+    display: none;
+}

@@ -1,0 +1,13 @@
+.box-content {
+    margin-top: 2%;
+    margin-left: 13%;
+    margin-right: 11%;
+}
+
+.page-title {
+    font-family: 'Poppins';
+    font-weight: 500 !important;
+    font-size: 3.7vh !important;
+    color: white;
+    margin-bottom: 7% !important;
+}
