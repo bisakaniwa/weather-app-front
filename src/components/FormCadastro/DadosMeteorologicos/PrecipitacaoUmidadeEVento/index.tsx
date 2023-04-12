@@ -3,7 +3,7 @@ import './styles.css'
 
 export function PrecipitacaoUmidadeEVento() {
     return (
-        <Grid container flexDirection="row" xs={12} className="conteudo-da-linha">
+        <Grid container flexDirection="row" className="conteudo-da-linha">
             <Grid item xs={4}>
                 <Typography className="titulo-precipitacao"> Precipitação </Typography>
                 <input type="number" className="input-precipitacao" />

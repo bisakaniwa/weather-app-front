@@ -10,7 +10,7 @@ export default function Cadastrar() {
             <Header />
             
             <Box className="box-content">
-                <Grid container flexDirection="column" xs={12}>
+                <Grid container flexDirection="column">
                     <Grid item xs={12}>
                         <Typography className="page-title"> Cadastro Meteorológico </Typography>
                     </Grid>

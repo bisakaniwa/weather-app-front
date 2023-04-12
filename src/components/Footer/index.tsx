@@ -1,4 +1,4 @@
-import { Avatar, Box, Grid, Typography } from "@mui/material";
+import { Avatar, Box, Typography } from "@mui/material";
 import './styles.css'
 import LogoDB from '../../styles/LogoDB.svg'
 

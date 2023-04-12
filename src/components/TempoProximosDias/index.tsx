@@ -1,4 +1,4 @@
-export function ProximosDias() {
+export default function TempoProximosDias() {
     return (
         <></>
     )

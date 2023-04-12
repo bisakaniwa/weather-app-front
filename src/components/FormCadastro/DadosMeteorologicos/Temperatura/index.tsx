@@ -3,7 +3,7 @@ import './styles.css'
 
 export function Temperatura() {
     return (
-        <Grid container flexDirection="row" xs={12} sx={{ mb: "5%"}}>
+        <Grid container flexDirection="row" sx={{ mb: "5%"}}>
             <Grid item xs={6}>
                 <Typography className="titulo-temperatura"> Temperatura Máxima </Typography>
                 <input className="cadastro-temperatura" type="number" />

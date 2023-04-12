@@ -1,4 +1,4 @@
-export function Hoje() {
+export default function TempoHoje() {
     return (
         <></>
     )

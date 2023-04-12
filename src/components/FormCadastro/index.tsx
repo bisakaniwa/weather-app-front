@@ -1,4 +1,4 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import './styles.css'
 import { CidadeEData } from "./CidadeEData";
 import { DadosMeteorologicos } from "./DadosMeteorologicos";
@@ -13,7 +13,7 @@ export default function FormCadastro() {
 
   return (
     <form onSubmit={() => { }}>
-      <Grid container flexDirection="column" xs={12}>
+      <Grid container flexDirection="column">
         <Grid item xs={12} className="cidade-e-data">
           <CidadeEData />
         </Grid>
