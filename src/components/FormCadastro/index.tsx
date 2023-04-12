@@ -9,6 +9,8 @@ export default function FormCadastro() {
   //   enviarRegistro({})
   // }
 
+  // Refazer usando TextField - exemplo do Google Maps
+
   return (
     <form onSubmit={() => { }}>
       <Grid container flexDirection="column" xs={12}>

@@ -2,12 +2,12 @@
     width: 95%;
     background: linear-gradient(180deg, rgba(149, 125, 205, 0.29) 0%, #523D7F 100%);
     border-radius: 10px;
-    margin-bottom: 7%;
+    margin-bottom: 5%;
     margin-top: 5%;
 }
 
 .dados-conteudo {
     margin-left: 3% !important;
-    padding-top: 5%;
-    padding-bottom: 7%;
+    padding-top: 3%;
+    padding-bottom: 5%;
 }

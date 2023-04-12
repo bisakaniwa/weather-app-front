@@ -1,0 +1,5 @@
+export function ProximosDias() {
+    return (
+        <></>
+    )
+}
