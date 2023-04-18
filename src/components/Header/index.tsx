@@ -1,5 +1,5 @@
 import { Box, Grid } from '@mui/material'
-import './styles.css'
+import './index.css'
 import { useNavigate } from 'react-router-dom';
 
 export default function Header() {

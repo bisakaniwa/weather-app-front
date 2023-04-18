@@ -1,5 +1,5 @@
 import { Avatar, Box, Typography } from "@mui/material";
-import './styles.css'
+import './index.css'
 import LogoDB from '../../styles/LogoDB.svg'
 
 export default function Footer() {

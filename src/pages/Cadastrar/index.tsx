@@ -1,24 +1,28 @@
 import { Box, Grid, Typography } from "@mui/material";
-import './styles.css'
+import './index.css'
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import FormCadastro from "../../components/FormCadastro";
+import { CadastroProvider } from "../../context/Meteorologia/provider";
 
 export default function Cadastrar() {
+
     return (
         <Box>
             <Header />
-            
-            <Box className="box-content">
-                <Grid container flexDirection="column">
-                    <Grid item xs={12}>
-                        <Typography className="page-title"> Cadastro Meteorológico </Typography>
+
+            <CadastroProvider>
+                <Box className="box-content">
+                    <Grid container flexDirection="column">
+                        <Grid item xs={12}>
+                            <Typography className="page-title"> Cadastro Meteorológico </Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormCadastro />
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <FormCadastro />
-                    </Grid>
-                </Grid>
-            </Box>
+                </Box>
+            </CadastroProvider>
 
             <Footer />
         </Box>

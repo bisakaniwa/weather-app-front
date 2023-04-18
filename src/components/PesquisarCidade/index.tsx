@@ -1,5 +1,5 @@
 import { Box, IconButton, Typography } from "@mui/material";
-import './styles.css'
+import './index.css'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 export default function PesquisarCidade() {

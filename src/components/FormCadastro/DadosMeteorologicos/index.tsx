@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material";
-import './styles.css'
+import './index.css'
 import { TempoETurno } from "./TempoETurno";
 import { Temperatura } from "./Temperatura";
 import { PrecipitacaoUmidadeEVento } from "./PrecipitacaoUmidadeEVento";
