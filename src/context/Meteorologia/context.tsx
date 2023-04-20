@@ -1,31 +1,24 @@
 import { createContext } from "react";
 import { Meteorologia } from "../../interfaces/MeteorologiaInterface";
 
-const hoje: Date = new Date();
-
 export const ESTADO_INICIAL: Meteorologia = {
     cidade: "",
-    data: hoje,
-    temperaturaMaxima: 0,
-    temperaturaMinima: 0,
+    data: new Date(),
     tempo: "",
     turno: "",
+    temperaturaMaxima: 0,
+    temperaturaMinima: 0,
     precipitacao: 0,
     umidade: 0,
     vento: 0,
+};
+
+type CadastroMeteorologicoType = {
+    meteorologia: Meteorologia,
+    setMeteorologia: React.Dispatch<React.SetStateAction<Meteorologia>>;
 }
 
-const contextoInicial: any = {
-    cadastroMeteorologico: ESTADO_INICIAL,
-    setCidade: () => null,
-    setData: () => null,
-    setTemperaturaMaxima: () => null,
-    setTemperaturaMinima: () => null,
-    setTempo: () => null,
-    setTurno: () => null,
-    setPrecipitacao: () => null,
-    setUmidade: () => null,
-    setVento: () => null,
-}
-
-export const CadastroContext = createContext(contextoInicial);
+export const CadastroContext = createContext<CadastroMeteorologicoType>({
+    meteorologia: ESTADO_INICIAL, 
+    setMeteorologia: () => {},
+});

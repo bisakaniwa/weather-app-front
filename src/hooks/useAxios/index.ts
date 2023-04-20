@@ -20,4 +20,4 @@ export const useAxios = () => ({
             console.log(error)
         }
     }
-})
+}) 

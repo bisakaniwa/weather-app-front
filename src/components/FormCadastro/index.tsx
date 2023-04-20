@@ -1,23 +1,30 @@
-import { Box, Grid } from "@mui/material";
+import { Box, FormHelperText, Grid } from "@mui/material";
 import { CidadeEData } from "./CidadeEData";
 import { DadosMeteorologicos } from "./DadosMeteorologicos";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { CadastroContext } from "../../context/Meteorologia/context";
 import { useAxios } from "../../hooks/useAxios";
 import './index.css'
+import { CadastroContext } from "../../context/Meteorologia/context";
+import { useContext } from 'react'
 
 export default function FormCadastro() {
   const navigate = useNavigate();
   const { post } = useAxios();
   const meteorologia = useContext(CadastroContext);
+  // const { handleSubmit } = useForm();
+  var erro: boolean = true;
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
-    post(meteorologia);
-    navigate("/");
+  //   e.preventDefault();
+  //   if (escondeMensagem === true) {
+  //     console.log(meteorologia)
+  //     post(meteorologia);
+  //     // navigate("/");
+  //   } else {
+  //     escondeMensagem = false;
+  //   }
   }
-
+  console.log(meteorologia)
   // Refazer usando TextField - exemplo do Google Maps
   return (
     <form onSubmit={handleSubmit}>
@@ -35,6 +42,9 @@ export default function FormCadastro() {
             onClick={handleSubmit}
           > Salvar </button>
         </Box>
+        <FormHelperText hidden={!erro}
+          sx={{ color: "white" }}
+        > Algo deu errado! Revise e tente novamente. </FormHelperText>
       </Grid>
     </form>
   )
