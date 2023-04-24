@@ -2,12 +2,9 @@ import { Grid, Typography } from "@mui/material";
 import './index.css'
 import { InputMeteorologia } from "../../Inputs";
 import { useCadastroContext } from "../../../../hooks/useCadastroContext";
-import { useForm } from "react-hook-form";
-import { Meteorologia } from "../../../../interfaces/MeteorologiaInterface";
 
 export function TempoETurno() {
     const [meteorologia, { handleTempo, handleTurno }] = useCadastroContext();
-    const { register, formState: { errors } } = useForm<Meteorologia>({ mode: "onChange" })
 
     return (
         <Grid container flexDirection="row">
@@ -17,7 +14,6 @@ export function TempoETurno() {
                     type="text"
                     onChange={handleTempo}
                     className="cadastro-tempo"
-                    // ref={register("tempo")}
                 />
                 <input className="cadastro-tempo" />
             </Grid>
@@ -28,7 +24,6 @@ export function TempoETurno() {
                     type="text"
                     onChange={handleTurno}
                     className="cadastro-turno"
-                    // ref={register("turno")}
                 />
                 <input className="cadastro-turno" />
             </Grid>

@@ -5,19 +5,21 @@ import { useNavigate } from "react-router-dom";
 import { useAxios } from "../../hooks/useAxios";
 import './index.css'
 import { useCadastroContext } from "../../hooks/useCadastroContext";
-import axios from "axios";
+import { useValidarForm } from "../../hooks/useValidarForm";
 
 export default function FormCadastro() {
   const navigate = useNavigate();
   const { post } = useAxios();
   const [meteorologia] = useCadastroContext();
-  var erro: boolean = false;
+  const validarForm = useValidarForm(meteorologia);
+  let valido: boolean = true;
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(meteorologia)
-    try {
-      const response = await axios.post("http://localhost:4767/api/meteorologicals", {
+    if (validarForm === false) {
+      alert("Algo deu errado! Revise os dados e tente novamente.");
+    } else {
+      post({
         "city": meteorologia.cidade,
         "date": meteorologia.data,
         "windSpeed": meteorologia.vento,
@@ -26,16 +28,12 @@ export default function FormCadastro() {
         "humidity": meteorologia.umidade,
         "precipitation": meteorologia.precipitacao,
         "shift": meteorologia.turno,
-      })
-      return response.data;
-    } catch (error) {
-      console.log(error)
-    };
-    navigate("/");
+      });
+      navigate("/");
+    }
   }
 
   // Refazer usando TextField - exemplo do Google Maps
-  
   return (
     <form onSubmit={handleSubmit}>
       <Grid container flexDirection="column">
@@ -52,7 +50,7 @@ export default function FormCadastro() {
             onClick={handleSubmit}
           > Salvar </button>
         </Box>
-        <FormHelperText hidden={!erro}
+        <FormHelperText hidden={valido}
           sx={{ color: "white" }}
         > Algo deu errado! Revise e tente novamente. </FormHelperText>
       </Grid>
