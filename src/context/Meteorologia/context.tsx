@@ -3,7 +3,7 @@ import { Meteorologia } from "../../interfaces/MeteorologiaInterface";
 
 export const ESTADO_INICIAL: Meteorologia = {
     cidade: "",
-    data: new Date(),
+    data: "",
     tempo: "",
     turno: "",
     temperaturaMaxima: 0,

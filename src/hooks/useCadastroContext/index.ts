@@ -4,7 +4,7 @@ import { Meteorologia } from "../../interfaces/MeteorologiaInterface";
 
 type AtualizarMeteorologia = {
     setCidade: (cidade: string) => void;
-    setData: (data: Date) => void;
+    setData: (data: string) => void;
     setTempo: (tempo: string) => void;
     setTurno: (turno: string) => void;
     setTemperaturaMaxima: (temperaturaMaxima: number) => void;
@@ -33,7 +33,7 @@ export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
         }))
     }, [setMeteorologia]);
 
-    const setData = useCallback((data: Date) => {
+    const setData = useCallback((data: string) => {
         setMeteorologia((estadoAnterior) => ({
             ...estadoAnterior, data
         }))
@@ -86,7 +86,7 @@ export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
     }, [setCidade]);
 
     const handleData = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        const data = new Date(e.target.value);
+        const data = new Date(Date.parse(e.target.value)).toUTCString();
         setData(data);
     }, [setData]);
 

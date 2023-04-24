@@ -4,28 +4,38 @@ import { DadosMeteorologicos } from "./DadosMeteorologicos";
 import { useNavigate } from "react-router-dom";
 import { useAxios } from "../../hooks/useAxios";
 import './index.css'
-import { CadastroContext } from "../../context/Meteorologia/context";
-import { useContext } from 'react'
+import { useCadastroContext } from "../../hooks/useCadastroContext";
+import axios from "axios";
 
 export default function FormCadastro() {
   const navigate = useNavigate();
   const { post } = useAxios();
-  const meteorologia = useContext(CadastroContext);
-  // const { handleSubmit } = useForm();
-  var erro: boolean = true;
+  const [meteorologia] = useCadastroContext();
+  var erro: boolean = false;
 
-  const handleSubmit = (e: any) => {
-  //   e.preventDefault();
-  //   if (escondeMensagem === true) {
-  //     console.log(meteorologia)
-  //     post(meteorologia);
-  //     // navigate("/");
-  //   } else {
-  //     escondeMensagem = false;
-  //   }
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log(meteorologia)
+    try {
+      const response = await axios.post("http://localhost:4767/api/meteorologicals", {
+        "city": meteorologia.cidade,
+        "date": meteorologia.data,
+        "windSpeed": meteorologia.vento,
+        "maxTemp": meteorologia.temperaturaMaxima,
+        "minTemp": meteorologia.temperaturaMinima,
+        "humidity": meteorologia.umidade,
+        "precipitation": meteorologia.precipitacao,
+        "shift": meteorologia.turno,
+      })
+      return response.data;
+    } catch (error) {
+      console.log(error)
+    };
+    navigate("/");
   }
-  console.log(meteorologia)
+
   // Refazer usando TextField - exemplo do Google Maps
+  
   return (
     <form onSubmit={handleSubmit}>
       <Grid container flexDirection="column">

@@ -1,10 +1,13 @@
+import { ChangeEvent, forwardRef } from "react";
+
 interface InputProps {
-    onChange: (e: any) => void;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     type: string;
     className?: string;
+    // ref: UseFormRegisterReturn<string>;
 }
 
-export function InputMeteorologia({ onChange, type, className }: InputProps) {
+export function InputMeteorologia({ onChange, type, className, }: InputProps) {
 
     return (
         <input

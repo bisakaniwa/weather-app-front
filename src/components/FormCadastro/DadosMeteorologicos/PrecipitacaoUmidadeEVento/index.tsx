@@ -2,11 +2,15 @@ import { Grid, Typography } from "@mui/material";
 import './index.css'
 import { InputMeteorologia } from "../../Inputs";
 import { useCadastroContext } from "../../../../hooks/useCadastroContext";
+import { useForm } from "react-hook-form";
+import { Meteorologia } from "../../../../interfaces/MeteorologiaInterface";
 
 export function PrecipitacaoUmidadeEVento() {
     const [meteorologia, { handlePrecipitacao,
         handleUmidade,
         handleVento }] = useCadastroContext();
+
+    const { register, formState: { errors } } = useForm<Meteorologia>({ mode: "onChange" })
 
     return (
         <Grid container flexDirection="row" className="conteudo-da-linha">
@@ -16,6 +20,7 @@ export function PrecipitacaoUmidadeEVento() {
                     type="number"
                     onChange={handlePrecipitacao}
                     className="input-precipitacao"
+                    // ref={register("precipitacao")}
                 />
             </Grid>
             <Grid item xs={3} sx={{ mt: "1%" }}>
@@ -24,6 +29,7 @@ export function PrecipitacaoUmidadeEVento() {
                     type="number"
                     onChange={handleUmidade}
                     className="input-umidade"
+                    // ref={register("umidade")}
                 />
             </Grid>
             <Grid item xs={5}>
@@ -32,6 +38,7 @@ export function PrecipitacaoUmidadeEVento() {
                     type="number"
                     onChange={handleVento}
                     className="input-vento"
+                    // ref={register("vento")}
                 />
             </Grid>
         </Grid>

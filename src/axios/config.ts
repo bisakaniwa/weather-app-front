@@ -5,4 +5,4 @@ export const axios = require('axios').default;
 //     baseUrl: "http://localhost:4767/api/meteorological/"
 // });
 
-export const baseURL: string = "http://localhost:4767/api/meteorological/"
+export const baseURL: string = "http://localhost:4767/api/meteorologicals"

@@ -1,6 +1,6 @@
 export type Meteorologia = {
     cidade: string,
-    data: Date,
+    data: string,
     temperaturaMaxima: number,
     temperaturaMinima: number,
     tempo: string,
