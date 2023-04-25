@@ -1,0 +1,20 @@
+.container {
+    margin-left: 13%;
+}
+
+.titulo {
+    color: white;
+    font-weight: 500;
+    font-size: 3vh;
+    margin-top: 3%;
+}
+
+.linha {
+    width: 80%;
+    font-size: 3vh;
+    padding: 1%;
+    font-weight: 200;
+    background: linear-gradient(180deg, rgba(149, 125, 205, 0.29) 0%, #523D7F 100%);
+    border-radius: 15px;
+    margin-bottom: 1.5%;
+}

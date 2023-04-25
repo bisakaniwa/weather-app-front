@@ -1,0 +1,32 @@
+.titulo-tempo,
+.titulo-turno {
+    font-size: 2.5vh !important;
+    color: white;
+}
+
+.cadastro-tempo {
+    font-family: 'Poppins';
+    font-size: 2vh;
+    color: white;
+    width: 60%;
+    padding: 6%;
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+    border-radius: 10px;
+    border: none;
+    margin-top: 10%;
+    margin-bottom: 8%;
+}
+
+.cadastro-turno {
+    font-family: 'Poppins';
+    font-size: 2vh;
+    color: white;
+    width: 50%;
+    padding: 6%;
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+    border-radius: 10px;
+    border: none;
+    margin-top: 10%;
+    margin-bottom: 8%;
+
+}

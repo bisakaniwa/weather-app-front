@@ -1,0 +1,99 @@
+.container {
+    margin-top: 2%;
+}
+
+.MuiTypography-root.hoje {
+    color: white;
+    font-size: 3.3vh;
+    font-weight: 500;
+    margin-left: 0%;
+    margin-top: 5%;
+}
+
+.MuiContainer-root.tempoHoje {
+    background: linear-gradient(180deg, rgba(140, 113, 202, 0.75) 0%, #523D7F 100%);
+    margin-top: 0.5%;
+    margin-bottom: 2%;
+    margin-left: 11.5%;
+    width: 75%;
+    border-radius: 15px;
+}
+
+.imagemTempo {
+    width: 80%;
+    padding: 15%;
+    margin-left: 10%;
+}
+
+.MuiTypography-root.maxTemp {
+    color: white;
+    font-size: 5vh;
+    margin-top: 11%;
+    margin-left: 15%;
+}
+
+.MuiTypography-root.barra {
+    color: white;
+    font-size: 3.5vh;
+    font-weight: 600;
+    margin-left: 30%;
+    margin-top: -9%;
+}
+
+.MuiTypography-root.minTemp {
+    color: white;
+    font-size: 2.5vh;
+    margin-left: 35.5%;
+    margin-top: -8%
+}
+
+.imagemPrecipitacao {
+    margin-top: 13%;
+    margin-left: 45%;
+    width: 45%;
+}
+
+.imagemUmidade {
+    margin-top: 15%;
+    margin-left: 35.5%;
+    width: 40%;
+}
+
+.imagemVento {
+    margin-top: 12.5%;
+    margin-left: 25%;
+    width: 43%;
+}
+
+.MuiTypography-root.valorPrecipitacao {
+    margin-top: 37%;
+    margin-left: 58%;
+}
+
+.MuiTypography-root.tituloPrecipitacao {
+    margin-top: 31%;
+    margin-left: 40%;
+    font-size: 1.8vh;
+}
+
+.MuiTypography-root.valorUmidade {
+    margin-top: 43%;
+    margin-left: 52%;
+}
+
+.MuiTypography-root.tituloUmidade {
+    font-size: 1.8vh;
+    margin-top: 35%;
+    margin-left: 40%;
+}
+
+.MuiTypography-root.tituloVento {
+    font-size: 1.8vh;
+    margin-top: 25%;
+    margin-left: 8%
+}
+
+.MuiTypography-root.valorVento {
+    margin-top: 37%;
+    margin-left: 31%;
+}

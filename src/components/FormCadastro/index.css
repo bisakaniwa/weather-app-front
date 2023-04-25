@@ -1,0 +1,17 @@
+.buttons {
+    color: white;
+    font-family: 'Poppins';
+    font-size: 2.5vh;
+    padding: 0.5%;
+    background: linear-gradient(180deg, rgba(149, 125, 205, 0.75) 0%, #523D7F 100%);
+    border-radius: 17px;
+    cursor: pointer;
+    margin-right: 5%;
+    width: 15%;
+    margin-bottom: 22%;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+}

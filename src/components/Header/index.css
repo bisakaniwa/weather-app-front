@@ -1,0 +1,24 @@
+.box-navbar {
+    display: flex;
+    width: 80%;
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+    border-radius: 10px;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    margin-top: 1%;
+    margin-left: 9%;
+}
+
+.font-properties {
+    font-family: Poppins;
+    font-size: 3.2vh;
+    font-weight: 600;
+    text-align: left;
+    color: #FFFFFF;
+    margin-left: 5%;
+}
+
+.navbar:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
