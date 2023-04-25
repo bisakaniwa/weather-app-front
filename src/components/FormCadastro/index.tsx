@@ -28,6 +28,7 @@ export default function FormCadastro() {
         "humidity": meteorologia.umidade,
         "precipitation": meteorologia.precipitacao,
         "shift": meteorologia.turno,
+        "climate": meteorologia.tempo,
       });
       navigate("/");
     }

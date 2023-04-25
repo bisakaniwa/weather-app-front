@@ -91,11 +91,11 @@ export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
     }, [setData]);
 
     const handleTempo = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setTempo(e.target.value);
+        setTempo(e.target.value.toUpperCase());
     }, [setTempo]);
 
     const handleTurno = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setTurno(e.target.value);
+        setTurno(e.target.value.toUpperCase());
     }, [setTurno]);
 
     const handleTemperaturaMaxima = useCallback((e: ChangeEvent<HTMLInputElement>) => {

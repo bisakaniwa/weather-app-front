@@ -15,7 +15,7 @@ export function TempoETurno() {
                     onChange={handleTempo}
                     className="cadastro-tempo"
                 />
-                <input className="cadastro-tempo" />
+                <input className="cadastro-tempo" disabled />
             </Grid>
 
             <Grid item flexDirection="column" xs={6}>
@@ -25,7 +25,7 @@ export function TempoETurno() {
                     onChange={handleTurno}
                     className="cadastro-turno"
                 />
-                <input className="cadastro-turno" />
+                <input className="cadastro-turno" disabled />
             </Grid>
         </Grid>
     )

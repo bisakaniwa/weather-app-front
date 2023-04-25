@@ -7,4 +7,5 @@ export interface ModelDoBack {
     precipitation: number,
     date: string,
     shift: string,
+    climate: string,
 }
