@@ -35,7 +35,7 @@ export function TempoHoje() {
                             </Grid>
 
                             <Grid item xs={8}>
-                                <Box sx={{ mt: 6 }}>
+                                <Box sx={{ mt: 7 }}>
                                     <Typography className="maxTemp"> {maxTemp}° </Typography>
                                     <Typography className="barra"><i> / </i></Typography>
                                     <Typography className="minTemp"> {minTemp}° </Typography>
