@@ -1,10 +1,10 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import PesquisarCidade from "../PesquisarCidade";
 import './index.css'
-import cloudy from '../../styles/icon/cloudy-weather-3311758-2754892 2.png'
-import precipitacao from '../../styles/icon/chuva.png'
-import umidade from '../../styles/icon/umidade.png'
-import vento from '../../styles/icon/vento.png'
+import cloudy from '../../styles/icons/cloudy-weather-3311758-2754892 2.png'
+import precipitacao from '../../styles/icons/chuva.png'
+import umidade from '../../styles/icons/umidade.png'
+import vento from '../../styles/icons/vento.png'
 
 export function TempoHoje() {
     const maxTemp: number = 23;
