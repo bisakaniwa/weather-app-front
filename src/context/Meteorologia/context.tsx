@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Meteorologia } from "../../interfaces/MeteorologiaInterface";
+import { Meteorologia } from "../../interfaces/Meteorologia";
 
 export const ESTADO_INICIAL: Meteorologia = {
     cidade: "",

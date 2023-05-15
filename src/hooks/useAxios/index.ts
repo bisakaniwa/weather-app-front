@@ -1,7 +1,8 @@
 import axios from "axios";
 import { baseURL } from "../../axios/config";
+import { Meteorologia } from "../../interfaces/Meteorologia";
 
-export const useAxiosGet = () => ({
+export const useAxios = () => ({
 
     getPrimeiraPagina: async () => {
         try {
@@ -43,6 +44,33 @@ export const useAxiosGet = () => ({
         try {
             const response = await axios.get(`baseURL/${cidade}/semana`);
             response.data;
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    cadastrarRegistro: async (dadosDoCadastro: Meteorologia) => {
+        try {
+            const response = await axios.post(baseURL, dadosDoCadastro);
+            return response.data;
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    atualizarRegistro: async (dadosAtualizados: Meteorologia) => {
+        try {
+            const response = await axios.put(baseURL, dadosAtualizados);
+            return response.data;
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    excluirRegistro: async (id: number) => {
+        try {
+            const response = await axios.delete(`baseURL/${id}`);
+            return response.data;
         } catch (error) {
             console.log(error)
         }

@@ -1,4 +1,4 @@
-export interface RegistroMeteorologico {
+export type Meteorologia = {
     cidade: string,
     data: string,
     temperaturaMaxima: number,

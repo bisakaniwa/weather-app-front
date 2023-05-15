@@ -1,5 +1,5 @@
 import { ESTADO_INICIAL } from "../../context/Meteorologia/context"
-import { Meteorologia } from "../../interfaces/MeteorologiaInterface"
+import { Meteorologia } from "../../interfaces/Meteorologia"
 
 export const useValidarForm = (novoCadastro: Meteorologia): boolean => {
     var valido: boolean = false;

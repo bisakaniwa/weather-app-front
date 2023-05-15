@@ -1,6 +1,6 @@
 import { useContext, ChangeEvent, useCallback } from "react"
 import { CadastroContext } from "../../context/Meteorologia/context"
-import { Meteorologia } from "../../interfaces/MeteorologiaInterface";
+import { Meteorologia } from "../../interfaces/Meteorologia";
 
 type AtualizarMeteorologia = {
     setCidade: (cidade: string) => void;
