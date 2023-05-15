@@ -13,7 +13,7 @@ export function Temperatura() {
                 <Typography className="titulo-temperatura"> Temperatura Máxima </Typography>
                 <InputMeteorologia
                     onChange={handleTemperaturaMaxima}
-                    className="cadastro-temperatura"
+                    className="cadastro-temperatura-max"
                     type="number"
                 />
             </Grid>
@@ -21,7 +21,7 @@ export function Temperatura() {
                 <Typography className="titulo-temperatura"> Temperatura Mínima </Typography>
                 <InputMeteorologia
                     onChange={handleTemperaturaMinima}
-                    className="cadastro-temperatura"
+                    className="cadastro-temperatura-min"
                     type="number"
                 />
             </Grid>

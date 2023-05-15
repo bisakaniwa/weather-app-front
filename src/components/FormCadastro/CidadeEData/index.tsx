@@ -1,4 +1,4 @@
-import { FormHelperText, Grid, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import './index.css'
 import { InputMeteorologia } from '../Inputs'
 import { useCadastroContext } from '../../../hooks/useCadastroContext';

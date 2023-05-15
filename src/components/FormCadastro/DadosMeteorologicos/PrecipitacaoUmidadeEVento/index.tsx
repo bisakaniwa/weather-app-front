@@ -9,7 +9,7 @@ export function PrecipitacaoUmidadeEVento() {
         handleVelocidadeVentos }] = useCadastroContext();
 
     return (
-        <Grid container flexDirection="row" className="conteudo-da-linha">
+        <Grid container flexDirection="row">
             <Grid item xs={4}>
                 <Typography className="titulo-precipitacao"> Precipitação </Typography>
                 <InputMeteorologia
@@ -18,7 +18,7 @@ export function PrecipitacaoUmidadeEVento() {
                     className="input-precipitacao"
                 />
             </Grid>
-            <Grid item xs={3} sx={{ mt: "1%" }}>
+            <Grid item xs={4} sx={{ mt: "1%" }}>
                 <Typography className="titulo-umidade"> Umidade </Typography>
                 <InputMeteorologia
                     type="number"
@@ -26,7 +26,7 @@ export function PrecipitacaoUmidadeEVento() {
                     className="input-umidade"
                 />
             </Grid>
-            <Grid item xs={5}>
+            <Grid item xs={4}>
                 <Typography className="titulo-vento"> Velocidade do vento </Typography>
                 <InputMeteorologia
                     type="number"

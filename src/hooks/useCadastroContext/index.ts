@@ -15,8 +15,8 @@ type AtualizarMeteorologia = {
 
     handleCidade: (e: ChangeEvent<HTMLInputElement>) => void;
     handleData: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleTempoDia: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleTempoNoite: (e: ChangeEvent<HTMLInputElement>) => void;
+    handleTempoDia: (e: ChangeEvent<HTMLSelectElement>) => void;
+    handleTempoNoite: (e: ChangeEvent<HTMLSelectElement>) => void;
     handleTemperaturaMaxima: (e: ChangeEvent<HTMLInputElement>) => void;
     handleTemperaturaMinima: (e: ChangeEvent<HTMLInputElement>) => void;
     handlePrecipitacao: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -90,11 +90,11 @@ export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
         setData(data);
     }, [setData]);
 
-    const handleTempoDia = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const handleTempoDia = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
         setTempoDia(e.target.value.toUpperCase());
     }, [setTempoDia]);
 
-    const handleTempoNoite = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const handleTempoNoite = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
         setTempoNoite(e.target.value.toUpperCase());
     }, [setTempoNoite]);
 

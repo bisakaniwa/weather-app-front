@@ -4,20 +4,20 @@ import { Tempo } from "./Tempo";
 import { Temperatura } from "./Temperatura";
 import { PrecipitacaoUmidadeEVento } from "./PrecipitacaoUmidadeEVento";
 
-export function DadosMeteorologicos() {
+export const DadosMeteorologicos = () => {
     return (
         <Box className="box-data">
             <Grid container flexDirection="row" spacing={2} className="dados-conteudo">
-                <Grid item xs={3}>
+                <Grid item xs={4}>
                     <Tempo />
                 </Grid>
 
-                <Grid item xs={8}>
-                    <Grid container flexDirection="column" sx={{ ml: "10%"}}>
+                <Grid item xs={7.5}>
+                    <Grid container flexDirection="column" sx={{ ml: "4%"}}>
                         <Grid item xs={12} className="temperaturas">
                             <Temperatura />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={10.5}>
                             <PrecipitacaoUmidadeEVento />
                         </Grid>
                     </Grid>

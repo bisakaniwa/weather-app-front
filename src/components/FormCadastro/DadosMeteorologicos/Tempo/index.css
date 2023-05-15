@@ -2,31 +2,36 @@
 .titulo-turno {
     font-size: 2.5vh !important;
     color: white;
+    margin-left: 2%;
 }
 
 .cadastro-tempo {
     font-family: 'Poppins';
-    font-size: 2vh;
+    font-size: 2.1vh;
     color: white;
-    width: 60%;
+    width: 95%;
     padding: 6%;
     background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
     border-radius: 10px;
     border: none;
     margin-top: 10%;
     margin-bottom: 8%;
+    cursor: pointer;
+}
+
+ select .opcao {
+    background: #957DCD;
 }
 
 .cadastro-turno {
     font-family: 'Poppins';
-    font-size: 2vh;
+    font-size: 2.1vh;
     color: white;
-    width: 50%;
+    width: 40%;
     padding: 6%;
     background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
     border-radius: 10px;
     border: none;
     margin-top: 10%;
     margin-bottom: 8%;
-
 }
