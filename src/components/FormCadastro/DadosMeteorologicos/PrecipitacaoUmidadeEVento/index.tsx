@@ -6,7 +6,7 @@ import { useCadastroContext } from "../../../../hooks/useCadastroContext";
 export function PrecipitacaoUmidadeEVento() {
     const [meteorologia, { handlePrecipitacao,
         handleUmidade,
-        handleVento }] = useCadastroContext();
+        handleVelocidadeVentos }] = useCadastroContext();
 
     return (
         <Grid container flexDirection="row" className="conteudo-da-linha">
@@ -30,7 +30,7 @@ export function PrecipitacaoUmidadeEVento() {
                 <Typography className="titulo-vento"> Velocidade do vento </Typography>
                 <InputMeteorologia
                     type="number"
-                    onChange={handleVento}
+                    onChange={handleVelocidadeVentos}
                     className="input-vento"
                 />
             </Grid>

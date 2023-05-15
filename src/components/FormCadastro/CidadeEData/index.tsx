@@ -6,6 +6,7 @@ import { useCadastroContext } from '../../../hooks/useCadastroContext';
 export function CidadeEData() {
     const [meteorologia, { handleCidade, handleData }] = useCadastroContext();
 
+    console.log(meteorologia.data)
     return (
         <Grid container flexDirection="row">
             <Grid item xs={6}>

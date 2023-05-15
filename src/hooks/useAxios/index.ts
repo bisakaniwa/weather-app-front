@@ -43,7 +43,7 @@ export const useAxios = () => ({
     getTempoSemana: async (cidade: string) => {
         try {
             const response = await axios.get(`baseURL/${cidade}/semana`);
-            response.data;
+            return response.data;
         } catch (error) {
             console.log(error)
         }

@@ -5,23 +5,23 @@ import { Meteorologia } from "../../interfaces/Meteorologia";
 type AtualizarMeteorologia = {
     setCidade: (cidade: string) => void;
     setData: (data: string) => void;
-    setTempo: (tempo: string) => void;
-    setTurno: (turno: string) => void;
+    setTempoDia: (tempoDia: string) => void;
+    setTempoNoite: (tempoNoite: string) => void;
     setTemperaturaMaxima: (temperaturaMaxima: number) => void;
     setTemperaturaMinima: (temperaturaMinima: number) => void;
     setPrecipitacao: (precipitacao: number) => void;
     setUmidade: (umidade: number) => void;
-    setVento: (vento: number) => void;
+    setVelocidadeVentos: (velocidadeVentos: number) => void;
 
     handleCidade: (e: ChangeEvent<HTMLInputElement>) => void;
     handleData: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleTempo: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleTurno: (e: ChangeEvent<HTMLInputElement>) => void;
+    handleTempoDia: (e: ChangeEvent<HTMLInputElement>) => void;
+    handleTempoNoite: (e: ChangeEvent<HTMLInputElement>) => void;
     handleTemperaturaMaxima: (e: ChangeEvent<HTMLInputElement>) => void;
     handleTemperaturaMinima: (e: ChangeEvent<HTMLInputElement>) => void;
     handlePrecipitacao: (e: ChangeEvent<HTMLInputElement>) => void;
     handleUmidade: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleVento: (e: ChangeEvent<HTMLInputElement>) => void;
+    handleVelocidadeVentos: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
@@ -39,15 +39,15 @@ export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
         }))
     }, [setMeteorologia]);
 
-    const setTempo = useCallback((tempo: string) => {
+    const setTempoDia = useCallback((tempoDia: string) => {
         setMeteorologia((estadoAnterior) => ({
-            ...estadoAnterior, tempo
+            ...estadoAnterior, tempoDia
         }))
     }, [setMeteorologia]);
 
-    const setTurno = useCallback((turno: string) => {
+    const setTempoNoite = useCallback((tempoNoite: string) => {
         setMeteorologia((estadoAnterior) => ({
-            ...estadoAnterior, turno
+            ...estadoAnterior, tempoNoite
         }))
     }, [setMeteorologia]);
 
@@ -75,9 +75,9 @@ export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
         }))
     }, [setMeteorologia]);
 
-    const setVento = useCallback((vento: number) => {
+    const setVelocidadeVentos = useCallback((velocidadeVentos: number) => {
         setMeteorologia((estadoAnterior) => ({
-            ...estadoAnterior, vento
+            ...estadoAnterior, velocidadeVentos
         }))
     }, [setMeteorologia]);
 
@@ -86,17 +86,17 @@ export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
     }, [setCidade]);
 
     const handleData = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        const data = new Date(Date.parse(e.target.value)).toUTCString();
+        const data = new Date(Date.parse(e.target.value)).toISOString();
         setData(data);
     }, [setData]);
 
-    const handleTempo = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setTempo(e.target.value.toUpperCase());
-    }, [setTempo]);
+    const handleTempoDia = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setTempoDia(e.target.value.toUpperCase());
+    }, [setTempoDia]);
 
-    const handleTurno = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setTurno(e.target.value.toUpperCase());
-    }, [setTurno]);
+    const handleTempoNoite = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setTempoNoite(e.target.value.toUpperCase());
+    }, [setTempoNoite]);
 
     const handleTemperaturaMaxima = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setTemperaturaMaxima(parseInt(e.target.value));
@@ -114,30 +114,30 @@ export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
         setUmidade(parseInt(e.target.value));
     }, [setUmidade]);
 
-    const handleVento = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setVento(parseInt(e.target.value));
-    }, [setVento]);
+    const handleVelocidadeVentos = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setVelocidadeVentos(parseInt(e.target.value));
+    }, [setVelocidadeVentos]);
 
     return [
         meteorologia, {
             setCidade,
             setData,
-            setTempo,
-            setTurno,
+            setTempoDia,
+            setTempoNoite,
             setTemperaturaMaxima,
             setTemperaturaMinima,
             setPrecipitacao,
             setUmidade,
-            setVento,
+            setVelocidadeVentos,
             handleCidade,
             handleData,
-            handleTempo,
-            handleTurno,
+            handleTempoDia,
+            handleTempoNoite,
             handleTemperaturaMaxima,
             handleTemperaturaMinima,
             handlePrecipitacao,
             handleUmidade,
-            handleVento,
+            handleVelocidadeVentos,
         }
     ]
 }

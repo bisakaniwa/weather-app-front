@@ -9,7 +9,7 @@ import { useValidarForm } from "../../hooks/useValidarForm";
 
 export default function FormCadastro() {
   const navigate = useNavigate();
-  const { post } = useAxios();
+  const { cadastrarRegistro } = useAxios();
   const [meteorologia] = useCadastroContext();
   const validarForm = useValidarForm(meteorologia);
   let valido: boolean = true;
@@ -19,16 +19,16 @@ export default function FormCadastro() {
     if (validarForm === false) {
       alert("Algo deu errado! Revise os dados e tente novamente.");
     } else {
-      post({
-        "city": meteorologia.cidade,
-        "date": meteorologia.data,
-        "windSpeed": meteorologia.vento,
-        "maxTemp": meteorologia.temperaturaMaxima,
-        "minTemp": meteorologia.temperaturaMinima,
-        "humidity": meteorologia.umidade,
-        "precipitation": meteorologia.precipitacao,
-        "shift": meteorologia.turno,
-        "climate": meteorologia.tempo,
+      cadastrarRegistro({
+        "cidade": meteorologia.cidade,
+        "data": meteorologia.data,
+        "tempoDia": meteorologia.tempoDia,
+        "tempoNoite": meteorologia.tempoNoite,
+        "temperaturaMaxima": meteorologia.temperaturaMaxima,
+        "temperaturaMinima": meteorologia.temperaturaMinima,
+        "precipitacao": meteorologia.precipitacao,
+        "umidade": meteorologia.umidade,
+        "velocidadeVentos": meteorologia.velocidadeVentos,
       });
       navigate("/");
     }

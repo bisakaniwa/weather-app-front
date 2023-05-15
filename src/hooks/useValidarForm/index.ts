@@ -6,22 +6,22 @@ export const useValidarForm = (novoCadastro: Meteorologia): boolean => {
 
     if (novoCadastro.cidade !== ESTADO_INICIAL.cidade &&
         novoCadastro.data !== ESTADO_INICIAL.data &&
-        novoCadastro.tempo !== ESTADO_INICIAL.tempo &&
-        novoCadastro.turno !== ESTADO_INICIAL.turno
+        novoCadastro.tempoDia !== ESTADO_INICIAL.tempoDia &&
+        novoCadastro.tempoNoite !== ESTADO_INICIAL.tempoNoite
     ) {
         return valido = true;
 
     } else if (novoCadastro.cidade && novoCadastro.data &&
         novoCadastro.precipitacao && novoCadastro.temperaturaMaxima &&
-        novoCadastro.temperaturaMinima && novoCadastro.tempo &&
-        novoCadastro.turno && novoCadastro.umidade && novoCadastro.vento !== undefined
+        novoCadastro.temperaturaMinima && novoCadastro.tempoDia &&
+        novoCadastro.tempoNoite && novoCadastro.umidade && novoCadastro.velocidadeVentos !== undefined
     ) {
         return valido = true;
 
     } else if (novoCadastro.cidade && novoCadastro.data &&
         novoCadastro.precipitacao && novoCadastro.temperaturaMaxima &&
-        novoCadastro.temperaturaMinima && novoCadastro.tempo &&
-        novoCadastro.turno && novoCadastro.umidade && novoCadastro.vento !== null
+        novoCadastro.temperaturaMinima && novoCadastro.tempoDia &&
+        novoCadastro.tempoNoite && novoCadastro.umidade && novoCadastro.velocidadeVentos !== null
     ) {
         return valido = true;
 

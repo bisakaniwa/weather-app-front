@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import './index.css'
-import { TempoETurno } from "./TempoETurno";
+import { Tempo } from "./Tempo";
 import { Temperatura } from "./Temperatura";
 import { PrecipitacaoUmidadeEVento } from "./PrecipitacaoUmidadeEVento";
 
@@ -9,7 +9,7 @@ export function DadosMeteorologicos() {
         <Box className="box-data">
             <Grid container flexDirection="row" spacing={2} className="dados-conteudo">
                 <Grid item xs={3}>
-                    <TempoETurno />
+                    <Tempo />
                 </Grid>
 
                 <Grid item xs={8}>

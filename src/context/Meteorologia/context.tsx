@@ -4,13 +4,13 @@ import { Meteorologia } from "../../interfaces/Meteorologia";
 export const ESTADO_INICIAL: Meteorologia = {
     cidade: "",
     data: "",
-    tempo: "",
-    turno: "",
+    tempoDia: "",
+    tempoNoite: "",
     temperaturaMaxima: 0,
     temperaturaMinima: 0,
     precipitacao: 0,
     umidade: 0,
-    vento: 0,
+    velocidadeVentos: 0,
 };
 
 type CadastroMeteorologicoType = {

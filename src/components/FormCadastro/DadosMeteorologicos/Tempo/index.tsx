@@ -3,8 +3,8 @@ import './index.css'
 import { InputMeteorologia } from "../../Inputs";
 import { useCadastroContext } from "../../../../hooks/useCadastroContext";
 
-export function TempoETurno() {
-    const [meteorologia, { handleTempo, handleTurno }] = useCadastroContext();
+export const Tempo = () => {
+    const [meteorologia, { handleTempoDia, handleTempoNoite }] = useCadastroContext();
 
     return (
         <Grid container flexDirection="row">
@@ -12,20 +12,20 @@ export function TempoETurno() {
                 <Typography className="titulo-tempo"> Tempo </Typography>
                 <InputMeteorologia
                     type="text"
-                    onChange={handleTempo}
+                    onChange={handleTempoDia}
                     className="cadastro-tempo"
                 />
-                <input className="cadastro-tempo" disabled />
+                <InputMeteorologia
+                    type="text"
+                    onChange={handleTempoNoite}
+                    className="cadastro-tempo"
+                />
             </Grid>
 
             <Grid item flexDirection="column" xs={6}>
                 <Typography className="titulo-turno"> Turno </Typography>
-                <InputMeteorologia
-                    type="text"
-                    onChange={handleTurno}
-                    className="cadastro-turno"
-                />
-                <input className="cadastro-turno" disabled />
+                <input className="cadastro-turno" value="Dia" disabled />
+                <input className="cadastro-turno" value="Noite" disabled />
             </Grid>
         </Grid>
     )
