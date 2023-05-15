@@ -1,11 +1,11 @@
-export type Meteorologia = {
+export interface RegistroMeteorologico {
     cidade: string,
     data: string,
     temperaturaMaxima: number,
     temperaturaMinima: number,
-    tempo: string,
-    turno: string,
+    tempoDia: string,
+    tempoNoite: string,
     precipitacao: number,
     umidade: number,
-    vento: number,
+    velocidadeVentos: number,
 }
