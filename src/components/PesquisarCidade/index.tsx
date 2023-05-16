@@ -1,14 +1,29 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import './index.css'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import { ChangeEvent } from "react";
 
-export default function PesquisarCidade() {
+type PesquisarCidade = {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClick: () => void;
+}
+export const PesquisarCidade = ({onChange, onClick}: PesquisarCidade) => {
+  
   return (
     <Box>
       <Typography className="titulo-pesquise"> Pesquise a cidade </Typography>
       {/* Trocar por um TextField para inserir ícone */}
-      <input className="pesquisa-cidade" />
-      <IconButton className="botao-localizacao" sx={{ ml: 2 }}>
+      <input
+        className="pesquisa-cidade"
+        onChange={onChange}
+      />
+
+      <IconButton
+        type="submit"
+        onClick={onClick}
+        className="botao-localizacao"
+        sx={{ ml: 2 }}
+      >
         <LocationOnOutlinedIcon sx={{ color: "white" }} />
       </IconButton>
     </Box>

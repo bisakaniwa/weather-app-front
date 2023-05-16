@@ -1,17 +1,25 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Box, Grid, Typography } from "@mui/material";
-import PesquisarCidade from "../../components/PesquisarCidade";
+import { PesquisarCidade } from "../../components/PesquisarCidade";
 import './index.css'
+import { useState, useEffect } from "react";
+import { useAxios } from "../../hooks/useAxios";
 
 export default function Listar() {
+  const [pesquisa, setPesquisa] = useState<string>("");
+  const { getPorCidade } = useAxios();
+
   return (
-    <>
+    <Box className="paginaLista">
       <Header />
       <Box className="container">
-        <Box className="titulo">
-          <Typography sx={{ mb: "2%" }}> Lista de Cidades </Typography>
-          <PesquisarCidade />
+        <Box>
+          <Typography className="titulo" sx={{ mb: "2%" }}> Lista de Cidades </Typography>
+          <PesquisarCidade
+            onChange={(e) => setPesquisa(e.target.value)}
+            onClick={() => {}}
+          />
         </Box>
 
         <Box>
@@ -35,6 +43,6 @@ export default function Listar() {
 
       </Box>
       <Footer />
-    </>
+    </Box>
   )
 }

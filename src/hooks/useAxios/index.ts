@@ -22,9 +22,10 @@ export const useAxios = () => ({
         }
     },
 
-    searchCidade: async (cidade: string) => {
+    getPorCidade: async (cidade: string) => {
         try {
             const response = await axios.get(`baseURL/${cidade}`);
+            console.log(response.data);
             return response.data;
         } catch (error) {
             console.log(error)

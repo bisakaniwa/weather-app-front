@@ -1,12 +1,20 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import PesquisarCidade from "../PesquisarCidade";
+import { PesquisarCidade } from "../PesquisarCidade";
 import './index.css'
 import cloudy from '../../styles/icons/cloudy-weather-3311758-2754892 2.png'
 import precipitacao from '../../styles/icons/chuva.png'
 import umidade from '../../styles/icons/umidade.png'
 import vento from '../../styles/icons/vento.png'
+import { useState } from "react";
+import { useAxios } from "../../hooks/useAxios";
 
 export function TempoHoje() {
+    const [pesquisa, setPesquisa] = useState<string>("");
+    const { getTempoHoje, getTempoSemana } = useAxios();
+    const busca = () => {
+        getTempoHoje(pesquisa);
+        getTempoSemana(pesquisa);
+    }
     const maxTemp: number = 23;
     const minTemp: number = 17;
     const precipitation: number = 5;
@@ -16,12 +24,15 @@ export function TempoHoje() {
     return (
         <Box>
             <Grid container className="container">
-                <Grid item xs={5}>
+                <Grid item xs={4}>
                     <Typography className="hoje"> Hoje </Typography>
                 </Grid>
 
-                <Grid item xs={7} >
-                    <PesquisarCidade />
+                <Grid item xs={8} >
+                    <PesquisarCidade
+                        onChange={(e) => setPesquisa(e.target.value)}
+                        onClick={busca}
+                    />
                 </Grid>
             </Grid>
 
