@@ -5,9 +5,10 @@ import { ChangeEvent } from "react";
 
 type PesquisarCidade = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: () => void;
 }
 
-export const PesquisarCidade = ({onChange}: PesquisarCidade) => {
+export const PesquisarCidade = ({onChange, onClick}: PesquisarCidade) => {
 
   return (
     <Box>
@@ -22,6 +23,7 @@ export const PesquisarCidade = ({onChange}: PesquisarCidade) => {
         type="submit"
         className="botao-localizacao"
         sx={{ ml: 2 }}
+        onClick={onClick}
       >
         <LocationOnOutlinedIcon sx={{ color: "white" }} />
       </IconButton>

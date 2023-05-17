@@ -39,6 +39,7 @@ export default function Listar() {
           <Typography className="titulo" sx={{ mb: "2%" }}> Lista de Cidades </Typography>
           <PesquisarCidade
             onChange={(e) => setPesquisa(e.target.value)}
+            onClick={exibirResultados}
           />
         </Box>
 
