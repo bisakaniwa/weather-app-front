@@ -25,7 +25,15 @@ export const axiosService = () => ({
     getPorCidade: async (cidade: string) => {
         try {
             const response = await axios.get(`${baseURL}/${cidade}`);
-            console.log(response.data);
+            return response.data;
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    getPorId: async (id: number) => {
+        try {
+            const response = await axios.get(`${baseURL}/${id}`);
             return response.data;
         } catch (error) {
             console.log(error)

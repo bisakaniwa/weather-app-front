@@ -9,12 +9,19 @@
     margin-top: 3%;
 }
 
-.linha {
+.tituloLista {
+    color: white;
+    font-size: 3vh !important;
+    font-weight: 500;
+}
+
+.linhaLista {
     width: 80%;
-    font-size: 3vh;
+    font-size: 2.5vh;
+    color: white;
     padding: 1%;
-    font-weight: 200;
+    font-weight: 500;
     background: linear-gradient(180deg, rgba(149, 125, 205, 0.29) 0%, #523D7F 100%);
     border-radius: 15px;
-    margin-bottom: 1.5%;
+    margin-bottom: 1%;
 }
