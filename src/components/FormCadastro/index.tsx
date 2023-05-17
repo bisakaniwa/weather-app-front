@@ -2,14 +2,14 @@ import { Box, FormHelperText, Grid } from "@mui/material";
 import { CidadeEData } from "./CidadeEData";
 import { DadosMeteorologicos } from "./DadosMeteorologicos";
 import { useNavigate } from "react-router-dom";
-import { useAxios } from "../../hooks/useAxios";
+import { axiosService } from "../../axios/axiosService";
 import './index.css'
 import { useCadastroContext } from "../../hooks/useCadastroContext";
 import { useValidarForm } from "../../hooks/useValidarForm";
 
 export default function FormCadastro() {
   const navigate = useNavigate();
-  const { cadastrarRegistro } = useAxios();
+  const { cadastrarRegistro } = axiosService();
   const [meteorologia] = useCadastroContext();
   const validarForm = useValidarForm(meteorologia);
   let valido: boolean = true;

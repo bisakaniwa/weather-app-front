@@ -5,10 +5,10 @@ import { ChangeEvent } from "react";
 
 type PesquisarCidade = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onClick: () => void;
 }
-export const PesquisarCidade = ({onChange, onClick}: PesquisarCidade) => {
-  
+
+export const PesquisarCidade = ({onChange}: PesquisarCidade) => {
+
   return (
     <Box>
       <Typography className="titulo-pesquise"> Pesquise a cidade </Typography>
@@ -20,7 +20,6 @@ export const PesquisarCidade = ({onChange, onClick}: PesquisarCidade) => {
 
       <IconButton
         type="submit"
-        onClick={onClick}
         className="botao-localizacao"
         sx={{ ml: 2 }}
       >

@@ -6,11 +6,11 @@ import precipitacao from '../../styles/icons/chuva.png'
 import umidade from '../../styles/icons/umidade.png'
 import vento from '../../styles/icons/vento.png'
 import { useState } from "react";
-import { useAxios } from "../../hooks/useAxios";
+import { axiosService } from "../../axios/axiosService";
 
 export function TempoHoje() {
     const [pesquisa, setPesquisa] = useState<string>("");
-    const { getTempoHoje, getTempoSemana } = useAxios();
+    const { getTempoHoje, getTempoSemana } = axiosService();
     const busca = () => {
         getTempoHoje(pesquisa);
         getTempoSemana(pesquisa);
@@ -31,7 +31,6 @@ export function TempoHoje() {
                 <Grid item xs={8} >
                     <PesquisarCidade
                         onChange={(e) => setPesquisa(e.target.value)}
-                        onClick={busca}
                     />
                 </Grid>
             </Grid>

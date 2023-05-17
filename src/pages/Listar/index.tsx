@@ -4,11 +4,32 @@ import { Box, Grid, Typography } from "@mui/material";
 import { PesquisarCidade } from "../../components/PesquisarCidade";
 import './index.css'
 import { useState, useEffect } from "react";
-import { useAxios } from "../../hooks/useAxios";
+import { axiosService } from "../../axios/axiosService";
+import { Meteorologia } from "../../interfaces/Meteorologia";
+import { RegistrosListados } from "../../interfaces/RegistrosListados";
 
 export default function Listar() {
   const [pesquisa, setPesquisa] = useState<string>("");
-  const { getPorCidade } = useAxios();
+  const [cidades, setCidades] = useState<Meteorologia[]>([]);
+  const [registros, setRegistros] = useState<RegistrosListados[]>([]);
+  const { getPrimeiraPagina, getPorCidade } = axiosService();
+
+  useEffect(() => {
+    if (pesquisa === "") {
+      const aoIniciarOuVazio = async () => {
+        const dados = await getPrimeiraPagina();
+        setRegistros(dados.content);
+      }
+      const registrosPagina1 = aoIniciarOuVazio();
+
+    } else {
+      const handlePesquisar = async () => {
+        const dados = await getPorCidade(pesquisa);
+        setRegistros(dados.content);
+      }
+      const exibirResultados = handlePesquisar();
+    }
+  }, [pesquisa])
 
   return (
     <Box className="paginaLista">
@@ -18,7 +39,6 @@ export default function Listar() {
           <Typography className="titulo" sx={{ mb: "2%" }}> Lista de Cidades </Typography>
           <PesquisarCidade
             onChange={(e) => setPesquisa(e.target.value)}
-            onClick={() => {}}
           />
         </Box>
 
@@ -35,8 +55,10 @@ export default function Listar() {
             <Grid item xs={2}>
               <Typography> Ação </Typography>
             </Grid>
-
-            <input className="linha" readOnly />
+            
+            {registros.map(registro =>
+              <input className="linha" readOnly value={registro.cidade} />
+            )}
 
           </Grid>
         </Box>
