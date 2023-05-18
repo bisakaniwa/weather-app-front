@@ -4,7 +4,7 @@ interface InputProps {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     type: string;
     className?: string;
-    value: string | number;
+    value?: string | number;
 }
 
 export function InputMeteorologia({ onChange, type, className, value }: InputProps) {

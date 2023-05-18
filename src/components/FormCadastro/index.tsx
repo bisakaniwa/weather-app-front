@@ -33,7 +33,7 @@ export const FormRegistro = () => {
       navigate("/");
     }
   }
-
+ console.log(meteorologia)
   // Refazer usando TextField - exemplo do Google Maps
   return (
     <form onSubmit={handleSubmit}>

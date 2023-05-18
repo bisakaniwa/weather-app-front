@@ -3,15 +3,15 @@ import { Grid, Typography } from "@mui/material";
 type PrecipitacaoUmidadeVentoType = {
     cssImagem?: string;
     cssValor?: string;
-    cssTitulo?: string;
+    cssNome?: string;
     imagem: string;
-    valor: string;
+    valor: number | undefined;
     nomeItem: string;
     decorador: string;
 }
 
 export const PrecipitacaoUmidadeVento = ({
-    cssImagem, cssValor, cssTitulo, imagem, valor, decorador, nomeItem
+    cssImagem, cssValor, cssNome, imagem, valor, decorador, nomeItem
 }: PrecipitacaoUmidadeVentoType) => {
     return (
         <Grid container flexDirection={"column"} sx={{ color: 'white' }}>
@@ -22,7 +22,7 @@ export const PrecipitacaoUmidadeVento = ({
                 <Typography className={cssValor}> {valor}{decorador} </Typography>
             </Grid>
             <Grid item>
-                <Typography className={cssTitulo}> {nomeItem} </Typography>
+                <Typography className={cssNome}> {nomeItem} </Typography>
             </Grid>
         </Grid>
     )

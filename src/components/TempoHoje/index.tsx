@@ -1,25 +1,32 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { PesquisarCidade } from "../PesquisarCidade";
 import './index.css'
-import cloudy from '../../styles/icons/cloudy-weather-3311758-2754892 2.png'
+import nublado from '../../styles/icons/cloudy-weather-3311758-2754892 2.png'
 import precipitacao from '../../styles/icons/chuva.png'
 import umidade from '../../styles/icons/umidade.png'
 import vento from '../../styles/icons/vento.png'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { axiosService } from "../../axios/axiosService";
+import { Meteorologia } from "../../interfaces/Meteorologia";
+import { PrecipitacaoUmidadeVento } from "./PrecipitacaoUmidadeVento";
 
 export function TempoHoje() {
     const [pesquisa, setPesquisa] = useState<string>("");
-    const { getTempoHoje, getTempoSemana } = axiosService();
-    const busca = () => {
-        getTempoHoje(pesquisa);
-        getTempoSemana(pesquisa);
+    const { getTempoHoje } = axiosService();
+    const [hoje, setHoje] = useState<Meteorologia>();
+
+    useEffect(() => {
+        const buscaHoje = async () => {
+            const data = await getTempoHoje("Avaré");
+            setHoje(data);
+        }
+        const resultadoHoje = buscaHoje();
+    }, [])
+
+    const handlePesquisar = async () => {
+        const data = await getTempoHoje(pesquisa);
+        setHoje(data);
     }
-    const maxTemp: number = 23;
-    const minTemp: number = 17;
-    const precipitation: number = 5;
-    const humidity: number = 3;
-    const winds: number = 4;
 
     return (
         <Box>
@@ -31,6 +38,7 @@ export function TempoHoje() {
                 <Grid item xs={8} >
                     <PesquisarCidade
                         onChange={(e) => setPesquisa(e.target.value)}
+                        onClick={handlePesquisar}
                     />
                 </Grid>
             </Grid>
@@ -41,14 +49,14 @@ export function TempoHoje() {
                     <Grid item xs={6}>
                         <Grid container>
                             <Grid item xs={4}>
-                                <img src={cloudy} className="imagemTempo" />
+                                <img src={nublado} className="imagemTempo" />
                             </Grid>
 
                             <Grid item xs={8}>
                                 <Box sx={{ mt: 7 }}>
-                                    <Typography className="maxTemp"> {maxTemp}° </Typography>
+                                    <Typography className="maxTemp"> {hoje?.temperaturaMaxima}° </Typography>
                                     <Typography className="barra"><i> / </i></Typography>
-                                    <Typography className="minTemp"> {minTemp}° </Typography>
+                                    <Typography className="minTemp"> {hoje?.temperaturaMinima}° </Typography>
                                 </Box>
                             </Grid>
                         </Grid>
@@ -57,45 +65,27 @@ export function TempoHoje() {
                     <Grid item xs={6}>
                         <Grid container justifyContent={"flex-end"} sx={{ color: 'white' }}>
                             <Grid item xs={4}>
-                                <Grid container flexDirection={"column"}>
-                                    <Grid item>
-                                        <img src={precipitacao} className="imagemPrecipitacao" />
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography className="valorPrecipitacao"> {precipitation}% </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography className="tituloPrecipitacao"> Precipitação </Typography>
-                                    </Grid>
-                                </Grid>
+                                <PrecipitacaoUmidadeVento
+                                    imagem={precipitacao} cssImagem="imagemPrecipitacao"
+                                    valor={hoje?.precipitacao} decorador="%" cssValor="valorPrecipitacao"
+                                    nomeItem="Precipitação" cssNome="tituloPrecipitacao"
+                                />
                             </Grid>
 
                             <Grid item xs={4}>
-                                <Grid container flexDirection={"column"}>
-                                    <Grid item>
-                                        <img src={umidade} className="imagemUmidade" />
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography className="valorUmidade"> {humidity}% </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography className="tituloUmidade"> Umidade </Typography>
-                                    </Grid>
-                                </Grid>
+                                <PrecipitacaoUmidadeVento
+                                    imagem={umidade} cssImagem="imagemUmidade"
+                                    valor={hoje?.umidade} decorador="%" cssValor="valorUmidade"
+                                    nomeItem="Umidade" cssNome="tituloUmidade"
+                                />
                             </Grid>
 
                             <Grid item xs={4}>
-                                <Grid container flexDirection={"column"}>
-                                    <Grid item>
-                                        <img src={vento} className="imagemVento" />
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography className="valorVento"> {winds}km/h </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography className="tituloVento"> Velocidade do vento </Typography>
-                                    </Grid>
-                                </Grid>
+                                <PrecipitacaoUmidadeVento
+                                    imagem={vento} cssImagem="imagemVento"
+                                    valor={hoje?.velocidadeVentos} decorador="km/h" cssValor="valorVento"
+                                    nomeItem="Velocidade do vento" cssNome="tituloVento"
+                                />
                             </Grid>
                         </Grid>
                     </Grid>

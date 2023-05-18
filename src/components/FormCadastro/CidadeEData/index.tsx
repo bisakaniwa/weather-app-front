@@ -9,24 +9,22 @@ export function CidadeEData() {
     const [meteorologia, { handleCidade, handleData }] = useCadastroContext();
     const [atualizacao, { handleAtualizaCidade, handleAtualizaData }] = useAtualizarContext();
 
-
-
     return (
         <Grid container flexDirection="row">
             <Grid item xs={6}>
                 <Typography className="field-title"> Cidade </Typography>
                 <InputMeteorologia type="text" className="cidade-input"
-                    onChange={handleCidade ?? handleAtualizaCidade}
-                    value={meteorologia.cidade ?? atualizacao.cidade}
+                    onChange={handleCidade}
+                    // value={null ?? atualizacao.cidade}
                 />
             </Grid>
 
             <Grid item xs={6}>
                 <Typography className="field-title"> Data </Typography>
                 <InputMeteorologia type="date"
-                    onChange={handleData ?? handleAtualizaData}
+                    onChange={handleData}
                     className="data-input"
-                    value={meteorologia.data.toString() ?? atualizacao.data.toString()}
+                    // value={null ?? atualizacao.data.toString()}
                 />
             </Grid>
         </Grid>

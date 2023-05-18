@@ -4,6 +4,8 @@ import { useCadastroContext } from "../../../../hooks/useCadastroContext";
 
 export const Tempo = () => {
     const [meteorologia, { handleTempoDia, handleTempoNoite }] = useCadastroContext();
+
+    // TODO: Tratar "Sol com nuvens" antes de enviar (o enum é SOL_COM_NUVENS)
     const tempoDia = [
         "Sol", "Sol com nuvens", "Nublado", "Chuva", "Tempestade"
     ]
@@ -19,6 +21,7 @@ export const Tempo = () => {
                     onChange={handleTempoDia}
                     className="cadastro-tempo"
                 >
+                    <option className="opcao" value="" disabled selected> Selecione </option>
                     {tempoDia.map(climaDia =>
                         <option className="opcao" value={climaDia}> {climaDia} </option>
                     )}
@@ -27,6 +30,7 @@ export const Tempo = () => {
                     onChange={handleTempoNoite}
                     className="cadastro-tempo"
                 >
+                    <option className="opcao" value="" disabled selected> Selecione </option>
                     {tempoNoite.map(climaNoite =>
                         <option className="opcao" value={climaNoite}> {climaNoite} </option>
                     )}

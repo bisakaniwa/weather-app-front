@@ -45,6 +45,7 @@ export const axiosService = () => ({
             const response = await axios.get(`${baseURL}/${cidade}/hoje`);
             return response.data;
         } catch (error) {
+            alert(`Ops! Parece que nenhum registro para hoje foi encontrado para ${cidade}...`)
             console.log(error)
         }
     },

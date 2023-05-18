@@ -15,7 +15,7 @@ export function Temperatura() {
                     onChange={handleTemperaturaMaxima}
                     className="cadastro-temperatura-max"
                     type="number"
-                    value={meteorologia.temperaturaMaxima}
+                    // value={meteorologia.temperaturaMaxima}
                 />
             </Grid>
             <Grid item xs={6} sx={{ pl: "8%" }}>
@@ -24,7 +24,7 @@ export function Temperatura() {
                     onChange={handleTemperaturaMinima}
                     className="cadastro-temperatura-min"
                     type="number"
-                    value={meteorologia.temperaturaMinima}
+                    // value={meteorologia.temperaturaMinima}
                 />
             </Grid>
         </Grid>
