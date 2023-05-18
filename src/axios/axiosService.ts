@@ -33,7 +33,7 @@ export const axiosService = () => ({
 
     getPorId: async (id: number) => {
         try {
-            const response = await axios.get(`${baseURL}/${id}`);
+            const response = await axios.get(`${baseURL}/recuperar/${id}`);
             return response.data;
         } catch (error) {
             console.log(error)

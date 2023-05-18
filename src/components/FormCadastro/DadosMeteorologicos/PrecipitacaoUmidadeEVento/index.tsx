@@ -16,6 +16,7 @@ export function PrecipitacaoUmidadeEVento() {
                     type="number"
                     onChange={handlePrecipitacao}
                     className="input-precipitacao"
+                    value={meteorologia.precipitacao}
                 />
             </Grid>
             <Grid item xs={4} sx={{ mt: "1%" }}>
@@ -24,6 +25,7 @@ export function PrecipitacaoUmidadeEVento() {
                     type="number"
                     onChange={handleUmidade}
                     className="input-umidade"
+                    value={meteorologia.umidade}
                 />
             </Grid>
             <Grid item xs={4}>
@@ -32,6 +34,7 @@ export function PrecipitacaoUmidadeEVento() {
                     type="number"
                     onChange={handleVelocidadeVentos}
                     className="input-vento"
+                    value={meteorologia.velocidadeVentos}
                 />
             </Grid>
         </Grid>

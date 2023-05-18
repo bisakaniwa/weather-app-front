@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import './index.css'
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import FormCadastro from "../../components/FormCadastro";
+import {FormRegistro} from "../../components/FormCadastro";
 import { CadastroProvider } from "../../context/Meteorologia/provider";
 
 export const Cadastrar = () => {
@@ -18,7 +18,7 @@ export const Cadastrar = () => {
                             <Typography className="page-title"> Cadastro Meteorológico </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <FormCadastro />
+                            <FormRegistro />
                         </Grid>
                     </Grid>
                 </Box>

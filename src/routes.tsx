@@ -11,7 +11,7 @@ export default function Router() {
                 <Route path="/" element={<Home />} />
                 <Route path="/cadastrar" element={<Cadastrar />} />
                 <Route path="/listar" element={<Listar />} />
-                <Route path="/atualizar" element={<Atualizar />} />
+                <Route path="/atualizar/:id" element={<Atualizar />} />
             </Routes>
         </BrowserRouter>
     )

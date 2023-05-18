@@ -1,26 +1,26 @@
 import { Box, Grid, Typography } from "@mui/material"
 import Header from "../../components/Header"
-import { CadastroProvider } from "../../context/Meteorologia/provider"
-import FormCadastro from "../../components/FormCadastro"
+import { FormRegistro } from "../../components/FormCadastro"
 import Footer from "../../components/Footer"
+import { AtualizacaoProvider } from '../../context/Meteorologia/provider';
 
 export const Atualizar = () => {
     return (
         <Box>
             <Header />
 
-            <CadastroProvider>
+            <AtualizacaoProvider>
                 <Box className="box-content">
                     <Grid container flexDirection="column">
                         <Grid item xs={12}>
                             <Typography className="page-title"> Atualização de Registro Meteorológico </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <FormCadastro />
+                            <FormRegistro />
                         </Grid>
                     </Grid>
                 </Box>
-            </CadastroProvider>
+            </AtualizacaoProvider>
 
             <Footer />
         </Box>

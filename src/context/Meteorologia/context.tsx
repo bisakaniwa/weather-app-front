@@ -13,22 +13,22 @@ export const ESTADO_INICIAL: Meteorologia = {
     velocidadeVentos: 0,
 };
 
-type DefineMeteorologiaType = {
+type MeteorologiaType = {
     meteorologia: Meteorologia,
-    setMeteorologia: React.Dispatch<React.SetStateAction<Meteorologia>>;
+    setMeteorologia: React.Dispatch<React.SetStateAction<Meteorologia>>,
 }
 
-export const CadastroContext = createContext<DefineMeteorologiaType>({
-    meteorologia: ESTADO_INICIAL, 
-    setMeteorologia: () => {},
+export const CadastroContext = createContext<MeteorologiaType>({
+    meteorologia: ESTADO_INICIAL,
+    setMeteorologia: () => { },
 });
 
-type GetMeteorologiaType = {
-    meteorologia: Meteorologia[],
-    setMeteorologia: () => [],
+type AtualizacaoMeteorologicaType = {
+    atualizacao: Meteorologia,
+    setAtualizacao: React.Dispatch<React.SetStateAction<Meteorologia>>,
 }
 
-export const GetContext = createContext<GetMeteorologiaType>({
-    meteorologia: [], 
-    setMeteorologia: () => [],
+export const AtualizacaoContext = createContext<AtualizacaoMeteorologicaType>({
+    atualizacao: {} as Meteorologia,
+    setAtualizacao: () => { },
 })

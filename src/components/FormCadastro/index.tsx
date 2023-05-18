@@ -7,7 +7,7 @@ import './index.css'
 import { useCadastroContext } from "../../hooks/useCadastroContext";
 import { useValidarForm } from "../../hooks/useValidarForm";
 
-export default function FormCadastro() {
+export const FormRegistro = () => {
   const navigate = useNavigate();
   const { cadastrarRegistro } = axiosService();
   const [meteorologia] = useCadastroContext();

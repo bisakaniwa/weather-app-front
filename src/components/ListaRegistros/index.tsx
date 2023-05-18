@@ -1,28 +1,34 @@
+import { useContext, useState } from 'react';
 import { Avatar, Box, Grid, IconButton, Typography } from '@mui/material'
 import excluir from '../../styles/icons/delete.png';
 import editar from '../../styles/icons/edit.png';
 import { RegistrosListados } from '../../interfaces/RegistrosListados';
 import { axiosService } from '../../axios/axiosService';
 import { useNavigate } from 'react-router-dom';
+import { Meteorologia } from '../../interfaces/Meteorologia';
+import { AtualizacaoContext } from '../../context/Meteorologia/context';
 
 type ListaRegistrosType = {
     registros: RegistrosListados[],
 }
 
-export const ListaRegistros = ({registros}: ListaRegistrosType) => {
+export const ListaRegistros = ({ registros }: ListaRegistrosType) => {
     const { excluirRegistro, getPorId } = axiosService();
     const navigate = useNavigate();
+    const [recebido, setRecebido] = useState<Meteorologia>();
+    const { atualizacao, setAtualizacao } = useContext(AtualizacaoContext);
 
     // TO DO: Colocar nas dependências do useEffect quando conseguir usar o useContext, remover navigate
     const handleExcluir = async (id: number) => {
-        excluirRegistro(id);
+        await excluirRegistro(id);
         navigate("/lista");
     }
 
     // TO DO: Página de editar recupera as informações pelo useContext
     const handleAtualizar = async (id: number) => {
-        getPorId(id);
-        navigate("/atualizar")
+        const dados: Meteorologia = await getPorId(id);
+        setRecebido(dados);
+        navigate(`/atualizar/${id}`)
     }
 
     return (
@@ -48,10 +54,10 @@ export const ListaRegistros = ({registros}: ListaRegistrosType) => {
                             </Grid>
 
                             <Grid item xs={4.5}>
-                                <Typography sx={{ ml: 4}}> {registro.data.toString()} </Typography>
+                                <Typography sx={{ ml: 4 }}> {registro.data.toString()} </Typography>
                             </Grid>
 
-                            <Grid item xs={1} sx={{ textAlign: "end"}}>
+                            <Grid item xs={1} sx={{ textAlign: "end" }}>
                                 <IconButton onClick={() => handleExcluir(registro.id)}>
                                     <Avatar sx={{ width: 25, height: 25 }} src={excluir} />
                                 </IconButton>
@@ -59,7 +65,7 @@ export const ListaRegistros = ({registros}: ListaRegistrosType) => {
 
                             <Grid item xs={1}>
                                 <IconButton onClick={() => handleAtualizar(registro.id)}>
-                                    <Avatar sx={{ width: 25, height: 25}} src={editar} />
+                                    <Avatar sx={{ width: 25, height: 25 }} src={editar} />
                                 </IconButton>
                             </Grid>
                         </Grid>

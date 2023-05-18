@@ -2,7 +2,7 @@ import { useContext, ChangeEvent, useCallback } from "react"
 import { CadastroContext } from "../../context/Meteorologia/context"
 import { Meteorologia } from "../../interfaces/Meteorologia";
 
-type AtualizarMeteorologia = {
+type CadastrarMeteorologia = {
     setCidade: (cidade: string) => void;
     setData: (data: string) => void;
     setTempoDia: (tempoDia: string) => void;
@@ -24,7 +24,7 @@ type AtualizarMeteorologia = {
     handleVelocidadeVentos: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const useCadastroContext = (): [Meteorologia, AtualizarMeteorologia] => {
+export const useCadastroContext = (): [Meteorologia, CadastrarMeteorologia] => {
     const { meteorologia, setMeteorologia } = useContext(CadastroContext);
 
     const setCidade = useCallback((cidade: string) => {
