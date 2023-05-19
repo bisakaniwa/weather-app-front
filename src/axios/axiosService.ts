@@ -13,9 +13,9 @@ export const axiosService = () => ({
         }
     },
 
-    getSegundaPagina: async () => {
+    getNaoPrimeiraPagina: async (numeroRequisitado: number) => {
         try {
-            const response = await axios.get(`${baseURL}/?page=1`);
+            const response = await axios.get(`${baseURL}?page=${numeroRequisitado}`);
             return response.data;
         } catch (error) {
             console.log(error)
@@ -25,6 +25,15 @@ export const axiosService = () => ({
     getPorCidade: async (cidade: string) => {
         try {
             const response = await axios.get(`${baseURL}/${cidade}`);
+            return response.data;
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    getPorCidadeComPagina: async (cidade: string, numeroRequisitado: number) => {
+        try {
+            const response = await axios.get(`${baseURL}/${cidade}?page=${numeroRequisitado}`);
             return response.data;
         } catch (error) {
             console.log(error)

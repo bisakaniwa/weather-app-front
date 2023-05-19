@@ -7,28 +7,65 @@ import { useState, useEffect } from "react";
 import { axiosService } from "../../axios/axiosService";
 import { RegistrosListados } from "../../interfaces/RegistrosListados";
 import { ListaRegistros } from "../../components/ListaRegistros";
+import { Paginacao } from "../../components/ListaRegistros/Paginacao";
 
 export const Listar = () => {
   const [pesquisa, setPesquisa] = useState<string>("");
   const [registros, setRegistros] = useState<RegistrosListados[]>([]);
-  const { getPrimeiraPagina, getPorCidade } = axiosService();
+  const { getPrimeiraPagina, getPorCidade, getNaoPrimeiraPagina, getPorCidadeComPagina } = axiosService();
+  const [totalPaginas, setTotalPaginas] = useState<number>(1);
+  // Página mostrada = página que é recebida do back, inicia com 0
+  const [paginaMostrada, setPaginaMostrada] = useState<number>(0);
+
+  const primeiraPagina = async () => {
+    const dados = await getPrimeiraPagina();
+    setRegistros(dados.content);
+    setTotalPaginas(dados.totalPages);
+    setPaginaMostrada(dados.pageable.pageNumber);
+  }
 
   useEffect(() => {
-    if (pesquisa === "") {
-      const aoIniciarOuVazio = async () => {
-        const dados = await getPrimeiraPagina();
-        setRegistros(dados.content);
-      }
-      const registrosPagina1 = aoIniciarOuVazio();
+    const aoIniciar = primeiraPagina();
+  }, []);
 
+  const handlePesquisar = async () => {
+    if (pesquisa === "") {
+      return primeiraPagina()
     } else {
-      const handlePesquisar = async () => {
-        const dados = await getPorCidade(pesquisa);
-        setRegistros(dados.content);
-      }
-      const exibirResultados = handlePesquisar();
+      const dados = await getPorCidade(pesquisa);
+      setRegistros(dados.content);
+      setTotalPaginas(dados.totalPages);
+      setPaginaMostrada(dados.pageable.pageNumber);
     }
-  }, [pesquisa])
+  }
+
+  const handlePaginaAnterior = async () => {
+    const numeroRequisitado = paginaMostrada - 1;
+    if (pesquisa === "") {
+      const dados = await getNaoPrimeiraPagina(numeroRequisitado);
+      setRegistros(dados.content);
+      setTotalPaginas(dados.totalPages);
+      setPaginaMostrada(dados.pageable.pageNumber);
+    } else {
+      const dados = await getPorCidadeComPagina(pesquisa, numeroRequisitado);
+      setRegistros(dados.content);
+      setPaginaMostrada(dados.pageable.pageNumber);
+    }
+  }
+
+  const handleProximaPagina = async () => {
+    const numeroRequisitado = paginaMostrada + 1;
+    if (pesquisa === "") {
+      const dados = await getNaoPrimeiraPagina(numeroRequisitado);
+      setRegistros(dados.content);
+      setTotalPaginas(dados.totalPages);
+      setPaginaMostrada(dados.pageable.pageNumber);
+    } else {
+      const dados = await getPorCidadeComPagina(pesquisa, numeroRequisitado);
+      setRegistros(dados.content);
+      setPaginaMostrada(dados.pageable.pageNumber);
+    }
+  }
 
   return (
     <Box className="paginaLista">
@@ -39,10 +76,18 @@ export const Listar = () => {
           <Typography className="titulo" sx={{ mb: "2%" }}> Lista de Cidades </Typography>
           <PesquisarCidade
             onChange={(e) => setPesquisa(e.target.value)}
+            onClick={handlePesquisar}
           />
         </Box>
 
         <ListaRegistros registros={registros} />
+
+        <Paginacao
+          totalPaginas={totalPaginas}
+          paginaMostrada={paginaMostrada}
+          listaPaginaAnterior={handlePaginaAnterior}
+          listaProximaPagina={handleProximaPagina}
+        />
 
       </Box>
       <Footer />

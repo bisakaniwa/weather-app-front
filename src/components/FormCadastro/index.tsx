@@ -30,10 +30,11 @@ export const FormRegistro = () => {
         "umidade": meteorologia.umidade,
         "velocidadeVentos": meteorologia.velocidadeVentos,
       });
+      alert("Cadastro feito com sucesso!")
       navigate("/");
     }
   }
- console.log(meteorologia)
+
   // Refazer usando TextField - exemplo do Google Maps
   return (
     <form onSubmit={handleSubmit}>
